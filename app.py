@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
 import os
 from datetime import datetime
@@ -70,6 +71,7 @@ def current_timestamp():
 # --------- Flask App ---------
 
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # --------- Routes (CRUD) ---------
 
